@@ -8,9 +8,14 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.create(params[:project])
-    flash[:notice] = "Project has been created."
-    redirect_to @project
+    @project = Project.new(params[:project])
+    if @project.save
+      flash[:notice] = "Project has been created."
+      redirect_to @project
+    else
+      flash[:alert] = "Project has been not created."
+      render action: "new"
+    end
   end
 
   def show
