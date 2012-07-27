@@ -1,5 +1,3 @@
-FactoryGirl.define do
-  factory :project do
-    name "Ticketee"
-  end
+Dir[Rails.root + "spec/factories/*.rb"].each do |file|
+  require file
 end

@@ -4,7 +4,11 @@ Feature: Editing Projects
   I want to be able to do that through ad interfece
 
   Background:
-    Given there is a project called "Vi Improved"
+    Given there are the following users:
+      | email               | password | admin |
+      | user@ticketee.com   | password | true  |
+    And I am signed in as them
+    And there is a project called "Vi Improved"
     And I am on the home page
     When I follow "Vi Improved"
     And I follow "Edit Project"
